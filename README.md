@@ -6,7 +6,7 @@ This processor includes three major components:
 
 Based on the [C4 model](https://c4model.com/) (level 1), you can see the relationships between these components:
 
-![Tux, the Linux mascot](docs/Diagram.drawio.png)
+![C4 Model - Level 1](https://raw.githubusercontent.com/Yazdanifard/Github-API-Processor/ce2be7023b6bb08fb25dd52379b6a68dbcc72040/Docs/Diagram.drawio.png)
 
 
 <br></br>
