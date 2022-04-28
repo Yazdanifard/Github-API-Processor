@@ -9,7 +9,6 @@ Based on the [C4 model](https://c4model.com/) (level 1), you can see the relatio
 ![C4 Model - Level 1](https://raw.githubusercontent.com/Yazdanifard/Github-API-Processor/ce2be7023b6bb08fb25dd52379b6a68dbcc72040/Docs/Diagram.drawio.png)
 
 
-<br></br>
 # ✨ How to use it
 - Get the code and go to the code folder
 -  Virtualenv modules installation (Unix based systems)
@@ -26,8 +25,6 @@ Based on the [C4 model](https://c4model.com/) (level 1), you can see the relatio
 
 ### Access the dashboard in browser: http://127.0.0.1:5000/
 
-
-<br> </br>
 ## ✨ Code structure
 
 ```
@@ -40,8 +37,8 @@ Based on the [C4 model](https://c4model.com/) (level 1), you can see the relatio
    |     |-- app/                   
    |     |     |-- src/               
    |     |     |     |--classes/                  
-   |     |     |     |     |-- Reader.py
-   |     |     |     |     |-- Writer.py
+   |     |     |     |     |-- Reader.py                 # Reads the API and processes the required data
+   |     |     |     |     |-- Writer.py                 # Writes data into sqlite db
    |     |     |     |--db/                    
    |     |     |           |-- create_db.py              # creates a sqlite db if it does not exit
    |     |     |-- app.py              
