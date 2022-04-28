@@ -6,10 +6,9 @@ This processor includes three major components:
 
 Based on the [C4 model](https://c4model.com/) (level 1), you can see the relationships between these components:
 
-![Tux, the Linux mascot](docs/Diagram.drawio.png)
+![C4 Model - Level 1](https://raw.githubusercontent.com/Yazdanifard/Github-API-Processor/ce2be7023b6bb08fb25dd52379b6a68dbcc72040/Docs/Diagram.drawio.png)
 
 
-<br></br>
 # ✨ How to use it
 - Get the code and go to the code folder
 -  Virtualenv modules installation (Unix based systems)
@@ -26,8 +25,6 @@ Based on the [C4 model](https://c4model.com/) (level 1), you can see the relatio
 
 ### Access the dashboard in browser: http://127.0.0.1:5000/
 
-
-<br> </br>
 ## ✨ Code structure
 
 ```
@@ -40,8 +37,8 @@ Based on the [C4 model](https://c4model.com/) (level 1), you can see the relatio
    |     |-- app/                   
    |     |     |-- src/               
    |     |     |     |--classes/                  
-   |     |     |     |     |-- Reader.py
-   |     |     |     |     |-- Writer.py
+   |     |     |     |     |-- Reader.py                 # Reads the API and processes the required data
+   |     |     |     |     |-- Writer.py                 # Writes data into sqlite db
    |     |     |     |--db/                    
    |     |     |           |-- create_db.py              # creates a sqlite db if it does not exit
    |     |     |-- app.py              
@@ -57,7 +54,7 @@ Based on the [C4 model](https://c4model.com/) (level 1), you can see the relatio
    |     |     |     |--templates/  
    |     |     |     |     |-- 404.html                  # 404 html page
    |     |     |     |     |-- base.html                 # Base template 
-   |     |     |     |     |-- doughnut_chart.html       # The html chart for section 2
+   |     |     |     |     |-- doughnut_chart.html       # The html chart for showing the top Watched Repositories
    |     |     |     |     |-- index.html                # The html home page
    |     |     |     |     |-- line_chart.html           # The html chart as an extra section
    |     |     |-- app.py
