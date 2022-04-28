@@ -40,7 +40,8 @@ Based on the [C4 model](https://c4model.com/) (level 1), you can see the relatio
    |     |     |     |     |-- Reader.py                 # Reads the API and processes the required data
    |     |     |     |     |-- Writer.py                 # Writes data into sqlite db
    |     |     |     |--db/                    
-   |     |     |           |-- create_db.py              # creates a sqlite db if it does not exit
+   |     |     |     |     |-- migration/              
+   |     |     |     |           |-- create_db.py        # creates a sqlite db if it does not exit
    |     |     |-- app.py              
    |     |-- .env                                        # Set the Github Personal Token by the user 
    |     |                       
