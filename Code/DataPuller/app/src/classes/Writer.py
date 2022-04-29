@@ -1,6 +1,7 @@
+from multiprocessing import connection
 import sqlite3
 from datetime import datetime
-from sqlite3 import Error
+from sqlite3 import Error,Connection
 
 class Writer:
     
@@ -11,7 +12,7 @@ class Writer:
     def __del__(self):
         self.conn.close()
 
-    def __create_connection(self,db_file):
+    def __create_connection(self,db_file)->Connection:
         """ create a database connection to the SQLite database
             specified by db_file
         :param db_file: database file
@@ -24,11 +25,13 @@ class Writer:
 
         return self.conn
 
-    def create_record(self,repo_id:int,event_name:str,event_time:str,repo_name:str):
+    def create_record(self,repo_id:int,event_name:str,event_time:str,repo_name:str)->int:
         """
-        Create a new project into the events table
-        :param conn:
-        :param project:
+        Create a new record
+        :param repo_id: repository id
+        :param event_name: the event name
+        :param event_time: the event time that it is created
+        :param repo_name: the repository name
         :return: row id
         """
         cur = self.conn.cursor()

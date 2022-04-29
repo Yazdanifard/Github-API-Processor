@@ -11,7 +11,7 @@ from flask import (
 
 app = Flask(__name__)
 specific_events = ["WatchEvent", "PullRequestEvent", "IssuesEvent"]
-db_dir = path.realpath(path.join(path.dirname(__file__), "..\..\Database"))
+db_dir = path.realpath(path.join(path.dirname(__file__), path.pardir,path.pardir,"Database"))
 db_file = path.join(db_dir, "github.db")
 dbreader = DBReader(db_file)
 
