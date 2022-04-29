@@ -19,7 +19,8 @@ Based on the [C4 model](https://c4model.com/) (level 1), you can see the relatio
    - .\virtualenv\Scripts\activate
 -  Install requirements
    -  pip3 install -r requirements.txt
-- Set the .env varibale: [Github Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+- Set the .env varibale: [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+  - With GitHub PAT you can send 5000 requests/hour. The program sends a request in each 0.7 second (0.7*5000=3500 seconds ~ 1 hour)
 - Run DataPuller/app/app.py
 - Run REST_API/app/app.py
 

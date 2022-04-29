@@ -1,7 +1,7 @@
 import json
 import sqlite3
 from datetime import datetime
-from sqlite3 import Error
+from sqlite3 import Error,Connection
 from time import sleep
 import json
 class DBReader:
@@ -17,7 +17,7 @@ class DBReader:
     def __del__(self):
         self.conn.close()
 
-    def __create_connection(self,db_file):
+    def __create_connection(self,db_file:str)->Connection:
         """ create a database connection to the SQLite database
             specified by db_file
         :param db_file: database file
@@ -56,7 +56,13 @@ class DBReader:
         return sum([(j-i).total_seconds() for i, j in zip(times_list[:-1], times_list[1:])])/(len(times_list)-1)
 
         
-    def get_events_grouped_by_event_type(self,time_offset:int,time_scale:str='minutes'):
+    def get_events_grouped_by_event_type(self,time_offset:int,time_scale:str='minutes')->dict:
+        """ create a database connection to the SQLite database
+            specified by db_file
+        :param time_offset: time offset from now like 10 which is 10 minutes ago
+        :param time_scale: it can be 'seconds' , 'minutes', 'hours','days'
+        :return: Connection object or None
+        """
         sql=f'''
             SELECT event,count(*) "count" FROM events
             where created_time>= DATETIME('now','localtime','-{time_offset} {time_scale}')
@@ -70,7 +76,7 @@ class DBReader:
         results=cur.fetchall()
         return dict(results)
     
-    def get_chart_data(self,event_type='PullRequestEvent'):
+    def get_chart_data(self,event_type='PullRequestEvent')->str:
         
         while True:
             last_row=self.get_events_grouped_by_event_type(1,'seconds')
@@ -90,7 +96,12 @@ class DBReader:
             sleep(1)
         # sleep(10)
 
-    def get_top_watchevent_repos(self,limit=5):
+    def get_top_watchevent_repos(self,limit=5)->list[tuple]:
+        """ create a database connection to the SQLite database
+            specified by db_file
+        :param limit: the number of top results 
+        :return: list of records of database
+        """
         sql = f''' 
                 with cte as (
                 SELECT repo_id,count(*) as count FROM events 

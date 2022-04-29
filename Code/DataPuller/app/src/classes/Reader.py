@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from os import getenv
 
 load_dotenv()
+
 GITHUB_PAT = getenv("GITHUB_PAT", "")
 
 
@@ -32,7 +33,7 @@ class Reader:
             json.dumps(self.request.json(), sort_keys=True).encode()
         ).hexdigest()
 
-    def get_new_event(self):
+    def get_new_event(self)->list:
         if self.new_hashed != self.__hashing_response():
             self.new_hashed = hash
             events = [
